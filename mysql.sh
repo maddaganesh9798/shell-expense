@@ -1,14 +1,21 @@
 #!/bin/bash
 
-userid=$(id -u)
 
-check_root(){
-    if [ $userid -eq 0 ]; then
-    echo "You are running as root."
-else
-    echo "You are NOT running as root."
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Please run as root"
+    exit 1
 fi
-}
+
+echo "I am root!"
+# userid=$(id -u)
+
+# check_root(){
+#     if [ $userid -eq 0 ]; then
+#     echo "You are running as root."
+# else
+#     echo "You are NOT running as root."
+# fi
+# }
 
 # USERID=$(id -u)
 # R="\e[31m"
